@@ -69,7 +69,7 @@ function getName($name){
     
     $json_feed = wp_remote_get( $json_feed_url, $args );
     
-    $weather_updates = json_decode( $json_feed['body'] );
+    $_updates = json_decode( $json_feed['body'] );
 
 ?>
 <div class="main">
@@ -77,8 +77,7 @@ function getName($name){
         <article class="plugin">
             <div class="location">
                 <h1 class="head">Location Title/Name : <?= $name; ?> </h1>
-                <div id="icon"><a href="<?= $json_feed_url; ?>" class="map">View Location Map</a></div>
-                
+                <div id="icon"><a href="<?= $json_feed_url; ?>" class="map">View Location Map</a></div>                
             </div>
         </article>
     </div>
@@ -91,10 +90,10 @@ function plugin_deactivate()
     global $wpdb;
     echo "deactivate";
 }
-function weather_styles() {
-	wp_enqueue_style( 'weather_styles', plugins_url( 'new_map/style.css' ) );
+function _styles() {
+	wp_enqueue_style( '_styles', plugins_url( 'new_map/style.css' ) );
 }
-add_action( 'admin_head', 'weather_styles' );
+add_action( 'admin_head', '_styles' );
 add_action('wp_enqueue_scripts', 'getName');
 register_activation_hook(__FILE__, 'plugin_install');
 register_deactivation_hook(__FILE__, 'plugin_deactivate');

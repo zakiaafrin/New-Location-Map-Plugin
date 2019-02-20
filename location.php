@@ -26,7 +26,7 @@
 										</tr>
 									</table>
 									<p>
-										<input class="button-primary" type="submit" name="submit" value="Submit" />
+										<input class="button-primary" type="submit" name="submit" value="Submit" id="myButton" />
 									</p>
 								</form>
 							</div>
